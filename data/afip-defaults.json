@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-05-01",
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "Supervisor/a",
+      "descripcion": "Coordinación y control de tareas",
+      "modalidades": {
+        "con_retiro": { "valor_hora": 4233.82, "valor_mensual": 528158.40 },
+        "sin_retiro": { "valor_hora": 4614.42, "valor_mensual": 585432.62 }
+      }
+    },
+    {
+      "id": 2,
+      "nombre": "Tareas específicas",
+      "descripcion": "Personal con tareas específicas",
+      "modalidades": {
+        "con_retiro": { "valor_hora": 4022.91, "valor_mensual": 492481.06 },
+        "sin_retiro": { "valor_hora": 4387.44, "valor_mensual": 545356.31 }
+      }
+    },
+    {
+      "id": 3,
+      "nombre": "Caseros/as",
+      "descripcion": "Personal para tareas de casería",
+      "modalidades": {
+        "sin_retiro": { "valor_hora": 3805.10, "valor_mensual": 481109.55 }
+      }
+    },
+    {
+      "id": 4,
+      "nombre": "Cuidado de personas",
+      "descripcion": "Asistencia y cuidados de personas",
+      "modalidades": {
+        "con_retiro": { "valor_hora": 3805.10, "valor_mensual": 481109.55 },
+        "sin_retiro": { "valor_hora": 4231.79, "valor_mensual": 533256.50 }
+      }
+    },
+    {
+      "id": 5,
+      "nombre": "Tareas generales",
+      "descripcion": "Personal para tareas generales",
+      "modalidades": {
+        "con_retiro": { "valor_hora": 3547.45, "valor_mensual": 435201.00 },
+        "sin_retiro": { "valor_hora": 3805.10, "valor_mensual": 481109.55 }
+      }
+    }
+  ],
+  "sumaNoRemunerativa": {
+    "brackets": [
+      { "maxHoras": 12, "etiqueta": "≤ 12h semanales", "monto": 4000 },
+      { "minHoras": 12, "maxHoras": 16, "etiqueta": "12 a < 16h semanales", "monto": 5750 },
+      { "minHoras": 16, "etiqueta": "≥ 16h semanales", "monto": 10000 }
+    ]
+  },
+  "aumentos": [
+    { "mes": 6, "anio": 2026, "porcentaje": 1.5 },
+    { "mes": 7, "anio": 2026, "porcentaje": 1.4 }
+  ],
+  "zonaDesfavorable": 0.30,
+  "antiguedad": { "porAnio": 1, "maximo": 20, "inicio": "2021-09" }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquidación Doméstica</title>
+  <meta name="description" content="Calculá el sueldo de empleadas domésticas según resoluciones AFIP">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="App" id="app">
+    <header class="App-header">
+      <h1 class="App-title">Liquidación Doméstica</h1>
+      <p class="App-subtitle">Calculá sueldos según resoluciones AFIP</p>
+    </header>
+
+    <main class="App-main">
+      <!-- Formulario de liquidación -->
+      <section class="Card" id="form-section">
+        <div class="Card-body" id="form-container">
+          <!-- rendered by ui.js -->
+        </div>
+      </section>
+
+      <!-- Resultado -->
+      <section class="Card Card--result u-hidden" id="result-section">
+        <div class="Card-header">
+          <h2 class="Card-title">Resultado de la Liquidación</h2>
+        </div>
+        <div class="Card-body" id="result-container">
+          <!-- rendered by ui.js -->
+        </div>
+      </section>
+
+      <!-- Gestor de categorías -->
+      <section class="Card" id="admin-section">
+        <div class="Card-header">
+          <h2 class="Card-title">Gestor de Categorías AFIP</h2>
+        </div>
+        <div class="Card-body" id="category-table-container">
+          <!-- rendered by ui.js -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="App-footer">
+      <p class="App-footer-text">Valores según AFIP / IgnacioOnline — Mayo 2026. Siempre verificar con la tabla oficial.</p>
+    </footer>
+  </div>
+
+  <!-- JS modules en orden de dependencia -->
+  <script src="js/storage.js"></script>
+  <script src="js/categories.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

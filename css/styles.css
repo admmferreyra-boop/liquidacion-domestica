@@ -1,0 +1,697 @@
+/* ============================================================
+   Liquidación Doméstica — styles.css
+   Metodología: SUIT CSS + utility-first para layout
+   Stack: CSS vanilla, sin preprocesadores, sin frameworks
+   ============================================================ */
+
+/* ------------------------------------------------------------------ */
+/*  Variables                                                         */
+/* ------------------------------------------------------------------ */
+:root {
+  --color-primary:       #0072bc;
+  --color-primary-dark:  #005a94;
+  --color-primary-light: #e8f4fd;
+  --color-primary-bg:    #f0f7fc;
+  --color-success:       #28a745;
+  --color-danger:        #dc3545;
+  --color-danger-light:  #f8d7da;
+  --color-warning:       #ffc107;
+  --color-bg:            #f0f2f5;
+  --color-card:          #ffffff;
+  --color-text:          #1a1a2e;
+  --color-text-secondary:#6c757d;
+  --color-text-muted:    #adb5bd;
+  --color-border:        #dee2e6;
+  --color-input-border:  #ced4da;
+  --color-input-focus:   #0072bc;
+  --color-row-hover:     #f8f9fa;
+  --color-total-bg:      #e8f5e9;
+  --color-total-text:    #1b5e20;
+  --color-na:            #f5f5f5;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas,
+               'Courier New', monospace;
+
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-lg: 12px;
+  --shadow:    0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+
+  --max-width: 520px;
+  --gap: 16px;
+  --gap-lg: 24px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reset                                                             */
+/* ------------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { max-width: 100%; display: block; }
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                         */
+/* ------------------------------------------------------------------ */
+.u-hidden { display: none !important; }
+
+/* ------------------------------------------------------------------ */
+/*  App Container                                                     */
+/* ------------------------------------------------------------------ */
+.App {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--gap);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Header                                                            */
+/* ------------------------------------------------------------------ */
+.App-header {
+  text-align: center;
+  padding: var(--gap-lg) 0 var(--gap);
+  margin-bottom: var(--gap);
+}
+
+.App-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.App-subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Main                                                              */
+/* ------------------------------------------------------------------ */
+.App-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Footer                                                            */
+/* ------------------------------------------------------------------ */
+.App-footer {
+  text-align: center;
+  padding: var(--gap-lg) 0 var(--gap);
+  margin-top: var(--gap-lg);
+}
+
+.App-footer-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Card                                                              */
+/* ------------------------------------------------------------------ */
+.Card {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.Card-header {
+  padding: var(--gap) var(--gap-lg);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-primary-bg);
+}
+
+.Card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.Card-body {
+  padding: var(--gap-lg);
+}
+
+.Card--result {
+  border-left: 4px solid var(--color-success);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Fieldset / Legend                                                 */
+/* ------------------------------------------------------------------ */
+.Form-fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: var(--gap-lg);
+}
+
+.Form-legend {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--gap);
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--color-primary-light);
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Form Groups                                                       */
+/* ------------------------------------------------------------------ */
+.Form-group {
+  margin-bottom: var(--gap);
+}
+
+.Form-group--half {
+  flex: 1;
+  min-width: 0;
+}
+
+.Form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.Form-label--inline {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.Form-row {
+  display: flex;
+  gap: var(--gap);
+}
+
+.Form-row--periodo > .Form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Inputs / Selects                                                  */
+/* ------------------------------------------------------------------ */
+.Form-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-card);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.Form-input:focus {
+  border-color: var(--color-input-focus);
+  box-shadow: 0 0 0 3px rgba(0, 114, 188, 0.12);
+}
+
+.Form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.Form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236c757d' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* Hide number spinners */
+.Form-input[type="number"]::-webkit-inner-spin-button,
+.Form-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Form-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Radios & Checkboxes                                               */
+/* ------------------------------------------------------------------ */
+.Form-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--gap);
+}
+
+.Form-radios--retiro {
+  gap: 12px;
+}
+
+.Form-radios--hs {
+  margin-top: 8px;
+  gap: 12px;
+}
+
+.Form-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.875rem;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--color-card);
+  user-select: none;
+}
+
+.Form-radio:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.Form-radio input[type="radio"] {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+
+.Form-radio:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  font-weight: 500;
+}
+
+.Form-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: var(--gap);
+}
+
+.Form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.Form-checkbox input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Form Actions (buttons row)                                        */
+/* ------------------------------------------------------------------ */
+.Form-actions {
+  margin-top: var(--gap-lg);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Buttons                                                           */
+/* ------------------------------------------------------------------ */
+.Button {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+  user-select: none;
+  line-height: 1.4;
+}
+
+.Button:active {
+  transform: translateY(1px);
+}
+
+.Button--primary {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  padding: 12px 36px;
+  font-size: 1rem;
+}
+
+.Button--primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.Button--secondary {
+  background: var(--color-card);
+  color: var(--color-text);
+  border-color: var(--color-border);
+  font-size: 0.85rem;
+  padding: 8px 16px;
+}
+
+.Button--secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.Button--danger:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: var(--color-danger-light);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Toolbar                                                           */
+/* ------------------------------------------------------------------ */
+.CategoryTable-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--gap);
+}
+
+.CategoryTable-header {
+  margin-bottom: 12px;
+}
+
+.CategoryTable-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.Form-helper {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  min-height: 1.2em;
+}
+
+.Form-helper--visible {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Result Table                                                      */
+/* ------------------------------------------------------------------ */
+.Result {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+}
+
+.Result-head th {
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.Result-row td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.Result-label {
+  color: var(--color-text-secondary);
+}
+
+.Result-value {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.Result-row--total {
+  background: var(--color-total-bg);
+}
+
+.Result-row--total td {
+  border-bottom: none;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.Result-label--total {
+  color: var(--color-total-text);
+  font-size: 1.05rem;
+}
+
+.Result-value--total {
+  color: var(--color-total-text);
+  font-size: 1.15rem;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Category Table                                                    */
+/* ------------------------------------------------------------------ */
+.CategoryTable-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.CategoryTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  min-width: 600px;
+}
+
+.CategoryTable th {
+  text-align: left;
+  padding: 10px 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.CategoryTable th small {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
+.CategoryTable-col--mod {
+  text-align: right;
+  min-width: 110px;
+}
+
+.CategoryTable-row:nth-child(even) {
+  background: var(--color-row-hover);
+}
+
+.CategoryTable-cell {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.CategoryTable-cell--name {
+  min-width: 140px;
+}
+
+.CategoryTable-cell--name small {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.CategoryTable-cell--na {
+  text-align: center;
+  color: var(--color-text-muted);
+  background: var(--color-na);
+  font-size: 0.8rem;
+}
+
+.CategoryTable-cell--editable {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.12s ease;
+  white-space: nowrap;
+}
+
+.CategoryTable-cell--editable:hover {
+  background: var(--color-primary-light);
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.CategoryTable-cell--editable::after {
+  content: ' ✎';
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.CategoryTable-cell--editable:hover::after {
+  opacity: 1;
+}
+
+.CategoryTable-input {
+  width: 100%;
+  min-width: 80px;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  outline: none;
+  text-align: right;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Error messages                                                    */
+/* ------------------------------------------------------------------ */
+.Form-errors {
+  background: var(--color-danger-light);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: var(--gap);
+}
+
+.Form-errors-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-danger);
+  margin-bottom: 4px;
+}
+
+.Form-errors-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.85rem;
+  color: var(--color-danger);
+}
+
+.Form-errors-list li {
+  margin-bottom: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Message (success/error toasts)                                    */
+/* ------------------------------------------------------------------ */
+.Message {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  margin-bottom: var(--gap);
+}
+
+.Message--success {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.Message--error {
+  background: var(--color-danger-light);
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Responsive — Mobile (default)                                     */
+/* ------------------------------------------------------------------ */
+
+/* Small phones */
+@media (max-width: 374px) {
+  .App { padding: 10px; }
+  .Card-body { padding: var(--gap); }
+  .Form-row { flex-direction: column; gap: 0; }
+  .Form-row--periodo { flex-direction: column; gap: 0; }
+  .Form-radio { flex: 1 1 100%; }
+}
+
+/* Tablets and small desktops */
+@media (min-width: 768px) {
+  .App { padding: var(--gap-lg); }
+  .App-title { font-size: 1.75rem; }
+  .Card-body { padding: var(--gap-lg) 28px; }
+  .Form-row--periodo .Form-group { margin-bottom: 0; }
+  .Form-radios { gap: 10px; }
+  .CategoryTable { font-size: 0.9rem; }
+  .CategoryTable-cell { padding: 12px 10px; }
+
+  /* Result section on wider screens */
+  .Result { font-size: 1rem; }
+  .Result-value--total { font-size: 1.3rem; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .App {
+    max-width: 640px;
+    padding: 32px;
+  }
+  .Card-body { padding: 28px 32px; }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Print                                                             */
+/* ------------------------------------------------------------------ */
+@media print {
+  .App-header { padding-top: 0; }
+  .Button, .CategoryTable-toolbar { display: none; }
+  .Card { box-shadow: none; border: 1px solid var(--color-border); }
+  .Card--result { border-left-color: var(--color-success); }
+}

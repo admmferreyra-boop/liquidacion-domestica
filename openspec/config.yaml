@@ -1,0 +1,68 @@
+# openspec/config.yaml
+schema: spec-driven
+
+context: |
+  Tech stack: HTML5, CSS3, JavaScript (ES6+) vanilla — sin build, sin dependencias
+  Architecture: SPA con módulos JS separados por responsabilidad (app, calculator,
+    categories, storage, ui). Sin framework ni librerías externas.
+  Testing: Sin test runner. Validación manual contra calculadoras oficiales AFIP.
+    strict_tdd deshabilitado.
+  Style: kebab-case para archivos, camelCase para JS, SUIT CSS para clases.
+    Sin bundlers, sin preprocesadores.
+
+rules:
+  proposal:
+    - Incluir plan de rollback para cambios con riesgo de perder datos (localStorage)
+    - Una propuesta por change, enfocada y acotada
+  specs:
+    - Usar Given/When/Then para escenarios
+    - Usar RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+    - Priorizar escenarios de cálculo salarial con valores de referencia AFIP
+  design:
+    - Incluir diagramas de flujo para lógica de liquidación
+    - Documentar decisiones arquitectónicas con fundamento técnico
+  tasks:
+    - Agrupar por fase, numeración jerárquica
+    - Mantener tareas completables en una sesión
+    - Preferir tareas pequeñas y verificables manualmente
+  apply:
+    - Seguir los patrones existentes del código
+    - Sin librerías externas — mantener stack vanilla
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: ""
+    coverage_threshold: 0
+  archive:
+    - Advertir antes de mergear deltas destructivos
+
+testing:
+  strict_tdd: false
+  detected: 2026-05-28
+  runner:
+    command: ""
+    framework: none
+  layers:
+    unit:
+      available: false
+      tool: ""
+    integration:
+      available: false
+      tool: ""
+    e2e:
+      available: false
+      tool: ""
+  coverage:
+    available: false
+    command: ""
+  quality:
+    linter:
+      available: false
+      command: ""
+    type_checker:
+      available: false
+      command: ""
+    formatter:
+      available: false
+      command: ""
