@@ -377,14 +377,6 @@ LD.UI = (function () {
       '<div class="CategoryTable-header">' +
         '<h3 class="CategoryTable-title">Valores de referencia' + fuenteLabel + '</h3>' +
       '</div>' +
-      '<div class="CategoryTable-toolbar">' +
-        '<button class="Button Button--secondary" id="btn-export-json">Exportar JSON</button>' +
-        '<label class="Button Button--secondary" id="btn-import-label">' +
-          'Importar JSON' +
-          '<input type="file" id="btn-import-json" accept=".json" style="display:none">' +
-        '</label>' +
-        '<button class="Button Button--secondary Button--danger" id="btn-reset-defaults">Restaurar defaults</button>' +
-      '</div>' +
       '<div class="CategoryTable-wrapper">' +
         '<table class="CategoryTable">' +
           '<thead>' +

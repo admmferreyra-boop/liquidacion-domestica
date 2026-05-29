@@ -37,11 +37,6 @@ var LD = window.LD || {};
     var tableContainer = document.getElementById('category-table-container');
     if (tableContainer) {
       LD.UI.renderCategoryTable(tableContainer, state.categorias, handleEditCategory, LD.Categories.getFuente());
-      LD.UI.bindCategoryEvents({
-        onExportJSON: handleExportJSON,
-        onImportJSON: handleImportJSON,
-        onResetDefaults: handleResetDefaults
-      });
     }
     // Bindear eventos del formulario
     LD.UI.bindFormEvents({
@@ -130,70 +125,6 @@ var LD = window.LD || {};
       if (state.ultimoCalculo) {
         handleCalcular();
       }
-    }
-  }
-
-  function handleExportJSON() {
-    var json = LD.Categories.exportJSON();
-    var blob = new Blob([json], { type: 'application/json' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'afip-rates.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  function handleImportJSON(file) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      try {
-        var data = JSON.parse(e.target.result);
-        var result = LD.Categories.importJSON(data);
-        var tableContainer = document.getElementById('category-table-container');
-        if (result.exito) {
-          state.categorias = LD.Categories.getAll();
-          if (tableContainer) {
-            LD.UI.renderCategoryTable(tableContainer, state.categorias, handleEditCategory, LD.Categories.getFuente());
-            LD.UI.bindCategoryEvents({
-              onExportJSON: handleExportJSON,
-              onImportJSON: handleImportJSON,
-              onResetDefaults: handleResetDefaults
-            });
-          }
-          // Recalcular si hay resultado
-          if (state.ultimoCalculo) {
-            handleCalcular();
-          }
-          LD.UI.showMessage(tableContainer || document.body, 'success', 'Tabla importada correctamente');
-        } else {
-          LD.UI.showMessage(tableContainer || document.body, 'error', result.error || 'Error al importar');
-        }
-      } catch (parseError) {
-        var tc = document.getElementById('category-table-container');
-        LD.UI.showMessage(tc || document.body, 'error', 'El archivo no contiene JSON válido');
-      }
-    };
-    reader.readAsText(file);
-  }
-
-  function handleResetDefaults() {
-    LD.Categories.resetToDefaults();
-    state.categorias = LD.Categories.getAll();
-    var tableContainer = document.getElementById('category-table-container');
-    if (tableContainer) {
-      LD.UI.renderCategoryTable(tableContainer, state.categorias, handleEditCategory, LD.Categories.getFuente());
-      LD.UI.bindCategoryEvents({
-        onExportJSON: handleExportJSON,
-        onImportJSON: handleImportJSON,
-        onResetDefaults: handleResetDefaults
-      });
-    }
-    // Recalcular si hay resultado visible
-    if (state.ultimoCalculo) {
-      handleCalcular();
     }
   }
 
