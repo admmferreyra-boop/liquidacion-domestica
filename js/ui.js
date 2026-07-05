@@ -181,7 +181,7 @@ LD.UI = (function () {
           '</label>' +
           '<label class="Form-checkbox">' +
             '<input type="checkbox" id="check-zona" ' + (s.zonaDesfavorable ? 'checked' : '') + '> ' +
-            'Zona desfavorable (30% — provincias del sur)' +
+            'Zona desfavorable (31% — provincias del sur)' +
           '</label>' +
           '<label class="Form-checkbox">' +
             '<input type="checkbox" id="check-vacaciones" ' + (s.vacaciones ? 'checked' : '') + '> ' +
@@ -301,7 +301,7 @@ LD.UI = (function () {
     ];
 
     if (result.zonaDesfavorable > 0) {
-      rows.push({ label: 'Zona desfavorable (30%)', value: result.zonaDesfavorable, highlight: false });
+      rows.push({ label: 'Zona desfavorable (31%)', value: result.zonaDesfavorable, highlight: false });
     }
 
     var subtotalLabel = 'Subtotal';

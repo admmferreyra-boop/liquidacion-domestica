@@ -55,10 +55,10 @@ LD.Calculator = (function () {
   }
 
   /**
-   * Zona desfavorable: 30% del básico (solo provincias del sur)
+   * Zona desfavorable: 31% del básico (solo provincias del sur)
    */
   function calcularZonaDesfavorable(basico) {
-    return redondear(basico * 0.30);
+    return redondear(basico * 0.31);
   }
 
   /**
