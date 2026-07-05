@@ -115,7 +115,7 @@ LD.Calculator = (function () {
    * Cálculo completo de liquidación.
    * input: { categoriaId, modalidad, horasSemanales, horasMensuales, tipoHoras,
    *          antiguedadAnios, sumaNR, zonaDesfavorable, vacaciones, sacMeses,
-   *          otroImporte, otroLabel }
+   *          mejorSalarioSemestral, otroImporte, otroLabel }
    * tabla: array de categorías desde categories.js
    */
   function calcularSueldo(inputs, tabla) {
@@ -148,8 +148,16 @@ LD.Calculator = (function () {
 
     var baseSAC = redondear(subtotal + zonaDesfavorable);
 
+    /* Mejor sueldo del semestre — si el usuario ingresó uno mayor al actual, se usa para SAC */
+    var mejorSalarioSemestral = (inputs.mejorSalarioSemestral && parseFloat(inputs.mejorSalarioSemestral) > 0)
+      ? redondear(parseFloat(inputs.mejorSalarioSemestral))
+      : 0;
+
+    var baseSACReal = (mejorSalarioSemestral > baseSAC) ? mejorSalarioSemestral : baseSAC;
+    var sacUsaMejorSalario = (mejorSalarioSemestral > baseSAC);
+
     var sac = (inputs.sacMeses && parseInt(inputs.sacMeses, 10) > 0)
-      ? calcularSAC(baseSAC, inputs.sacMeses)
+      ? calcularSAC(baseSACReal, inputs.sacMeses)
       : 0;
 
     var vacaciones = inputs.vacaciones
@@ -167,8 +175,10 @@ LD.Calculator = (function () {
       antiguedad: antiguedad,
       subtotal: subtotal,
       zonaDesfavorable: zonaDesfavorable,
+      baseSAC: baseSACReal,
       sumaNR: sumaNR,
       sac: sac,
+      sacUsaMejorSalario: sacUsaMejorSalario,
       vacaciones: vacaciones,
       otroImporte: otroImporte,
       otroLabel: (otroImporte > 0 && inputs.otroLabel) ? inputs.otroLabel : '',

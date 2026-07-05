@@ -194,6 +194,13 @@ LD.UI = (function () {
           '<label class="Form-label" for="input-sac-meses">Meses trabajados en el semestre (SAC)</label>' +
           '<input class="Form-input" type="number" id="input-sac-meses" min="0" max="6" step="1" ' +
             'placeholder="Ej: 6" value="' + (s.sacMeses || '') + '">' +
+          '<label class="Form-label Form-label--secondary" for="input-sac-mejor-sueldo">' +
+            'Mejor sueldo del semestre (opcional)' +
+          '</label>' +
+          '<input class="Form-input" type="number" id="input-sac-mejor-sueldo" min="0" step="0.01" ' +
+            'placeholder="Ej: 500000" value="' + (s.mejorSalarioSemestral || '') + '">' +
+          '<small class="Form-helper">Si algún mes del semestre tuvo un sueldo mayor al actual, ' +
+            'ingresalo acá para calcular el aguinaldo correctamente</small>' +
         '</div>' +
 
         /* Otro importe extra */
@@ -263,6 +270,7 @@ LD.UI = (function () {
       zonaDesfavorable: document.getElementById('check-zona').checked,
       vacaciones: document.getElementById('check-vacaciones').checked,
       sacMeses: parseInt(document.getElementById('input-sac-meses').value, 10) || 0,
+      mejorSalarioSemestral: parseFloat(document.getElementById('input-sac-mejor-sueldo').value) || 0,
       otroLabel: document.getElementById('input-otro-label').value.trim(),
       otroImporte: parseFloat(document.getElementById('input-otro-importe').value) || 0
     };
@@ -312,7 +320,10 @@ LD.UI = (function () {
       rows.push({ label: 'Suma no remunerativa', value: result.sumaNR, highlight: false });
     }
     if (result.sac > 0) {
-      rows.push({ label: 'SAC proporcional', value: result.sac, highlight: false });
+      var sacLabel = result.sacUsaMejorSalario
+        ? ('SAC proporcional (sobre mejor sueldo del semestre: ' + formatARS(result.baseSAC) + ')')
+        : 'SAC proporcional';
+      rows.push({ label: sacLabel, value: result.sac, highlight: false });
     }
     if (result.vacaciones > 0) {
       rows.push({ label: 'Vacaciones proporcionales', value: result.vacaciones, highlight: false });
