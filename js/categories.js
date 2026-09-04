@@ -18,8 +18,8 @@ LD.Categories = (function () {
       nombre: 'Supervisor/a',
       descripcion: 'Coordinación y control de tareas',
       modalidades: {
-        con_retiro: { valor_hora: 4438.77, valor_mensual: 553725.91 },
-        sin_retiro: { valor_hora: 4829.13, valor_mensual: 612673.11 }
+        con_retiro: { valor_hora: 4523.11, valor_mensual: 564246.70 },
+        sin_retiro: { valor_hora: 4920.89, valor_mensual: 624313.90 }
       }
     },
     {
@@ -27,8 +27,8 @@ LD.Categories = (function () {
       nombre: 'Tareas específicas',
       descripcion: 'Personal con tareas específicas',
       modalidades: {
-        con_retiro: { valor_hora: 4223.25, valor_mensual: 517006.43 },
-        sin_retiro: { valor_hora: 4597.18, valor_mensual: 571426.17 }
+        con_retiro: { valor_hora: 4303.50, valor_mensual: 526829.56 },
+        sin_retiro: { valor_hora: 4684.53, valor_mensual: 582283.26 }
       }
     },
     {
@@ -36,7 +36,7 @@ LD.Categories = (function () {
       nombre: 'Caseros/as',
       descripcion: 'Personal para tareas de casería',
       modalidades: {
-        sin_retiro: { valor_hora: 3996.45, valor_mensual: 505302.76 }
+        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
       }
     },
     {
@@ -44,8 +44,8 @@ LD.Categories = (function () {
       nombre: 'Cuidado de personas',
       descripcion: 'Asistencia y cuidados de personas',
       modalidades: {
-        con_retiro: { valor_hora: 3996.45, valor_mensual: 505302.76 },
-        sin_retiro: { valor_hora: 4435.86, valor_mensual: 558972.92 }
+        con_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 },
+        sin_retiro: { valor_hora: 4520.15, valor_mensual: 569593.41 }
       }
     },
     {
@@ -53,21 +53,21 @@ LD.Categories = (function () {
       nombre: 'Tareas generales',
       descripcion: 'Personal para tareas generales',
       modalidades: {
-        con_retiro: { valor_hora: 3733.72, valor_mensual: 458053.22 },
-        sin_retiro: { valor_hora: 3996.45, valor_mensual: 505302.76 }
+        con_retiro: { valor_hora: 3804.66, valor_mensual: 466756.24 },
+        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
       }
     }
   ];
 
-  /* Escala IgnacioOnline — misma referencia junio 2026, mantenida como opción alternativa */
+  /* Escala IgnacioOnline — misma referencia agosto 2026, mantenida como opción alternativa */
   var CATEGORIAS_IGNACIO = [
     {
       id: 1,
       nombre: 'Supervisor/a',
       descripcion: 'Coordinación y control de tareas',
       modalidades: {
-        con_retiro: { valor_hora: 4438.77, valor_mensual: 553725.91 },
-        sin_retiro: { valor_hora: 4829.13, valor_mensual: 612673.11 }
+        con_retiro: { valor_hora: 4523.11, valor_mensual: 564246.70 },
+        sin_retiro: { valor_hora: 4920.89, valor_mensual: 624313.90 }
       }
     },
     {
@@ -75,8 +75,8 @@ LD.Categories = (function () {
       nombre: 'Tareas específicas',
       descripcion: 'Personal con tareas específicas',
       modalidades: {
-        con_retiro: { valor_hora: 4223.25, valor_mensual: 517006.43 },
-        sin_retiro: { valor_hora: 4597.18, valor_mensual: 571426.17 }
+        con_retiro: { valor_hora: 4303.50, valor_mensual: 526829.56 },
+        sin_retiro: { valor_hora: 4684.53, valor_mensual: 582283.26 }
       }
     },
     {
@@ -84,7 +84,7 @@ LD.Categories = (function () {
       nombre: 'Caseros/as',
       descripcion: 'Personal para tareas de casería',
       modalidades: {
-        sin_retiro: { valor_hora: 3996.45, valor_mensual: 505302.76 }
+        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
       }
     },
     {
@@ -92,8 +92,8 @@ LD.Categories = (function () {
       nombre: 'Cuidado de personas',
       descripcion: 'Asistencia y cuidados de personas',
       modalidades: {
-        con_retiro: { valor_hora: 3996.45, valor_mensual: 505302.76 },
-        sin_retiro: { valor_hora: 4435.86, valor_mensual: 558972.92 }
+        con_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 },
+        sin_retiro: { valor_hora: 4520.15, valor_mensual: 569593.41 }
       }
     },
     {
@@ -101,8 +101,8 @@ LD.Categories = (function () {
       nombre: 'Tareas generales',
       descripcion: 'Personal para tareas generales',
       modalidades: {
-        con_retiro: { valor_hora: 3733.72, valor_mensual: 458053.22 },
-        sin_retiro: { valor_hora: 3996.45, valor_mensual: 505302.76 }
+        con_retiro: { valor_hora: 3804.66, valor_mensual: 466756.24 },
+        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
       }
     }
   ];
@@ -118,12 +118,12 @@ LD.Categories = (function () {
 
   /* Valores de suma no remunerativa y aumentos — se actualizan desde el JSON remoto */
   var snrBrackets = [
-    { maxHoras: 12, monto: 4000 },
-    { minHoras: 12, maxHoras: 16, monto: 5750 },
-    { minHoras: 16, monto: 10000 }
+    { maxHoras: 12, monto: 8000 },
+    { minHoras: 12, maxHoras: 16, monto: 11500 },
+    { minHoras: 16, monto: 20000 }
   ];
 
-  var aumentosProgramados = []; // Valores base actualizados a julio 2026 (último tramo Res. 4/2026)
+  var aumentosProgramados = []; // Valores base actualizados a agosto 2026 (Res. 6/2026)
 
   function getFuenteDefault( fuente ) {
     var entry = FUENTES[fuente] || FUENTES.afip;
