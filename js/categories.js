@@ -11,15 +11,16 @@ LD.Categories = (function () {
      Se puede cambiar a una URL absoluta si se aloja en otro lado */
   var DATA_URL = 'data/afip-defaults.json';
 
-  /* Escala AFIP — valores oficiales embebidos como fallback offline */
+  /* Escala ARCA — valores oficiales embebidos como fallback offline
+     Septiembre 2026: Res. CNTCP 6/2026 (BO 03/09/2026), PDF oficial ARCA */
   var CATEGORIAS_AFIP = [
     {
       id: 1,
       nombre: 'Supervisor/a',
       descripcion: 'Coordinación y control de tareas',
       modalidades: {
-        con_retiro: { valor_hora: 4523.11, valor_mensual: 564246.70 },
-        sin_retiro: { valor_hora: 4920.89, valor_mensual: 624313.90 }
+        con_retiro: { valor_hora: 4645.33, valor_mensual: 579493.14 },
+        sin_retiro: { valor_hora: 5049.58, valor_mensual: 640641.55 }
       }
     },
     {
@@ -27,8 +28,8 @@ LD.Categories = (function () {
       nombre: 'Tareas específicas',
       descripcion: 'Personal con tareas específicas',
       modalidades: {
-        con_retiro: { valor_hora: 4303.50, valor_mensual: 526829.56 },
-        sin_retiro: { valor_hora: 4684.53, valor_mensual: 582283.26 }
+        con_retiro: { valor_hora: 4422.54, valor_mensual: 541402.49 },
+        sin_retiro: { valor_hora: 4809.80, valor_mensual: 597854.36 }
       }
     },
     {
@@ -36,7 +37,7 @@ LD.Categories = (function () {
       nombre: 'Caseros/as',
       descripcion: 'Personal para tareas de casería',
       modalidades: {
-        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
+        sin_retiro: { valor_hora: 4185.94, valor_mensual: 529261.78 }
       }
     },
     {
@@ -44,8 +45,8 @@ LD.Categories = (function () {
       nombre: 'Cuidado de personas',
       descripcion: 'Asistencia y cuidados de personas',
       modalidades: {
-        con_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 },
-        sin_retiro: { valor_hora: 4520.15, valor_mensual: 569593.41 }
+        con_retiro: { valor_hora: 4185.94, valor_mensual: 529261.78 },
+        sin_retiro: { valor_hora: 4641.90, valor_mensual: 584936.09 }
       }
     },
     {
@@ -53,21 +54,23 @@ LD.Categories = (function () {
       nombre: 'Tareas generales',
       descripcion: 'Personal para tareas generales',
       modalidades: {
-        con_retiro: { valor_hora: 3804.66, valor_mensual: 466756.24 },
-        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
+        con_retiro: { valor_hora: 3914.64, valor_mensual: 480247.85 },
+        sin_retiro: { valor_hora: 4185.94, valor_mensual: 529261.78 }
       }
     }
   ];
 
-  /* Escala IgnacioOnline — misma referencia agosto 2026, mantenida como opción alternativa */
+  /* Escala IgnacioOnline — septiembre 2026, opción alternativa.
+     Difiere de ARCA en tareas generales sin retiro (4.306,71 / 544.531,78),
+     fila que no coincide con el PDF oficial de ARCA. */
   var CATEGORIAS_IGNACIO = [
     {
       id: 1,
       nombre: 'Supervisor/a',
       descripcion: 'Coordinación y control de tareas',
       modalidades: {
-        con_retiro: { valor_hora: 4523.11, valor_mensual: 564246.70 },
-        sin_retiro: { valor_hora: 4920.89, valor_mensual: 624313.90 }
+        con_retiro: { valor_hora: 4645.32, valor_mensual: 579493.14 },
+        sin_retiro: { valor_hora: 5049.58, valor_mensual: 640641.55 }
       }
     },
     {
@@ -75,8 +78,8 @@ LD.Categories = (function () {
       nombre: 'Tareas específicas',
       descripcion: 'Personal con tareas específicas',
       modalidades: {
-        con_retiro: { valor_hora: 4303.50, valor_mensual: 526829.56 },
-        sin_retiro: { valor_hora: 4684.53, valor_mensual: 582283.26 }
+        con_retiro: { valor_hora: 4422.53, valor_mensual: 541402.48 },
+        sin_retiro: { valor_hora: 4809.80, valor_mensual: 597854.37 }
       }
     },
     {
@@ -84,7 +87,7 @@ LD.Categories = (function () {
       nombre: 'Caseros/as',
       descripcion: 'Personal para tareas de casería',
       modalidades: {
-        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
+        sin_retiro: { valor_hora: 4185.94, valor_mensual: 529261.78 }
       }
     },
     {
@@ -92,8 +95,8 @@ LD.Categories = (function () {
       nombre: 'Cuidado de personas',
       descripcion: 'Asistencia y cuidados de personas',
       modalidades: {
-        con_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 },
-        sin_retiro: { valor_hora: 4520.15, valor_mensual: 569593.41 }
+        con_retiro: { valor_hora: 4185.94, valor_mensual: 529261.78 },
+        sin_retiro: { valor_hora: 4641.90, valor_mensual: 584936.09 }
       }
     },
     {
@@ -101,14 +104,14 @@ LD.Categories = (function () {
       nombre: 'Tareas generales',
       descripcion: 'Personal para tareas generales',
       modalidades: {
-        con_retiro: { valor_hora: 3804.66, valor_mensual: 466756.24 },
-        sin_retiro: { valor_hora: 4072.38, valor_mensual: 514903.51 }
+        con_retiro: { valor_hora: 3914.63, valor_mensual: 480247.84 },
+        sin_retiro: { valor_hora: 4306.71, valor_mensual: 544531.78 }
       }
     }
   ];
 
   var FUENTES = {
-    afip: { nombre: 'AFIP (oficial)', data: CATEGORIAS_AFIP },
+    afip: { nombre: 'ARCA (oficial)', data: CATEGORIAS_AFIP },
     ignacio: { nombre: 'IgnacioOnline', data: CATEGORIAS_IGNACIO }
   };
 
@@ -123,7 +126,7 @@ LD.Categories = (function () {
     { minHoras: 16, monto: 20000 }
   ];
 
-  var aumentosProgramados = []; // Valores base actualizados a agosto 2026 (Res. 6/2026)
+  var aumentosProgramados = []; // Sin aumentos programados — la escala se actualiza mes a mes en data/afip-defaults.json
 
   function getFuenteDefault( fuente ) {
     var entry = FUENTES[fuente] || FUENTES.afip;
@@ -168,9 +171,14 @@ LD.Categories = (function () {
     CATEGORIAS_AFIP.length = 0;
     CATEGORIAS_IGNACIO.length = 0;
     for (var i = 0; i < data.categorias.length; i++) {
-      var cat = data.categorias[i];
-      CATEGORIAS_AFIP.push(JSON.parse(JSON.stringify(cat)));
-      CATEGORIAS_IGNACIO.push(JSON.parse(JSON.stringify(cat)));
+      CATEGORIAS_AFIP.push(JSON.parse(JSON.stringify(data.categorias[i])));
+    }
+    // Escala IgnacioOnline propia si el JSON la trae; si no, misma tabla que la oficial
+    var tablaIgnacio = Array.isArray(data.categoriasIgnacio) && data.categoriasIgnacio.length > 0
+      ? data.categoriasIgnacio
+      : data.categorias;
+    for (var j = 0; j < tablaIgnacio.length; j++) {
+      CATEGORIAS_IGNACIO.push(JSON.parse(JSON.stringify(tablaIgnacio[j])));
     }
     if (data.sumaNoRemunerativa && Array.isArray(data.sumaNoRemunerativa.brackets)) {
       snrBrackets = data.sumaNoRemunerativa.brackets;
