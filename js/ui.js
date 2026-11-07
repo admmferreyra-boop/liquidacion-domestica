@@ -176,10 +176,6 @@ LD.UI = (function () {
         '<legend class="Form-legend">Adicionales</legend>' +
         '<div class="Form-checkboxes">' +
           '<label class="Form-checkbox">' +
-            '<input type="checkbox" id="check-sumaNR" disabled> ' +
-            'Suma no remunerativa — no aplica en octubre 2026 (ya integrada a la escala)' +
-          '</label>' +
-          '<label class="Form-checkbox">' +
             '<input type="checkbox" id="check-zona" ' + (s.zonaDesfavorable ? 'checked' : '') + '> ' +
             'Zona desfavorable (31% — provincias del sur)' +
           '</label>' +
@@ -266,7 +262,6 @@ LD.UI = (function () {
         parseInt(document.getElementById('input-anio').value, 10) || 2026
       ),
       fechaIngreso: document.getElementById('input-fecha-ingreso').value,
-      sumaNR: document.getElementById('check-sumaNR').checked,
       zonaDesfavorable: document.getElementById('check-zona').checked,
       vacaciones: document.getElementById('check-vacaciones').checked,
       sacMeses: parseInt(document.getElementById('input-sac-meses').value, 10) || 0,
@@ -316,9 +311,6 @@ LD.UI = (function () {
     var rowsBeforeSubtotal = rows.length;
     rows.push({ label: subtotalLabel, value: result.subtotal, highlight: false });
 
-    if (result.sumaNR > 0) {
-      rows.push({ label: 'Suma no remunerativa', value: result.sumaNR, highlight: false });
-    }
     if (result.sac > 0) {
       var sacLabel = result.sacUsaMejorSalario
         ? ('SAC proporcional (sobre mejor sueldo del semestre: ' + formatARS(result.baseSAC) + ')')
