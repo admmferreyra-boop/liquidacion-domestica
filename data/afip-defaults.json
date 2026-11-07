@@ -1,15 +1,15 @@
 {
-  "version": 5,
-  "lastUpdated": "2026-10-07",
-  "fuente": "ARCA / Resolución CNTCP 6/2026 — Septiembre 2026",
+  "version": 6,
+  "lastUpdated": "2026-11-07",
+  "fuente": "ARCA / Resolución CNTCP 6/2026 — Octubre 2026",
   "categorias": [
     {
       "id": 1,
       "nombre": "Supervisor/a",
       "descripcion": "Coordinación y control de tareas",
       "modalidades": {
-        "con_retiro": { "valor_hora": 4645.33, "valor_mensual": 579493.14 },
-        "sin_retiro": { "valor_hora": 5049.58, "valor_mensual": 640641.55 }
+        "con_retiro": { "valor_hora": 4805.82, "valor_mensual": 599514.52 },
+        "sin_retiro": { "valor_hora": 5215.59, "valor_mensual": 661702.46 }
       }
     },
     {
@@ -17,8 +17,8 @@
       "nombre": "Tareas específicas",
       "descripcion": "Personal con tareas específicas",
       "modalidades": {
-        "con_retiro": { "valor_hora": 4422.54, "valor_mensual": 541402.49 },
-        "sin_retiro": { "valor_hora": 4809.80, "valor_mensual": 597854.36 }
+        "con_retiro": { "valor_hora": 4580.80, "valor_mensual": 560776.33 },
+        "sin_retiro": { "valor_hora": 4973.38, "valor_mensual": 618187.89 }
       }
     },
     {
@@ -26,7 +26,7 @@
       "nombre": "Caseros/as",
       "descripcion": "Personal para tareas de casería",
       "modalidades": {
-        "sin_retiro": { "valor_hora": 4185.94, "valor_mensual": 529261.78 }
+        "sin_retiro": { "valor_hora": 4337.53, "valor_mensual": 548429.23 }
       }
     },
     {
@@ -34,8 +34,8 @@
       "nombre": "Cuidado de personas",
       "descripcion": "Asistencia y cuidados de personas",
       "modalidades": {
-        "con_retiro": { "valor_hora": 4185.94, "valor_mensual": 529261.78 },
-        "sin_retiro": { "valor_hora": 4641.90, "valor_mensual": 584936.09 }
+        "con_retiro": { "valor_hora": 4337.53, "valor_mensual": 548429.23 },
+        "sin_retiro": { "valor_hora": 4801.52, "valor_mensual": 605050.00 }
       }
     },
     {
@@ -43,8 +43,8 @@
       "nombre": "Tareas generales",
       "descripcion": "Personal para tareas generales",
       "modalidades": {
-        "con_retiro": { "valor_hora": 3914.64, "valor_mensual": 480247.85 },
-        "sin_retiro": { "valor_hora": 4185.94, "valor_mensual": 529261.78 }
+        "con_retiro": { "valor_hora": 4064.08, "valor_mensual": 498582.06 },
+        "sin_retiro": { "valor_hora": 4337.53, "valor_mensual": 548429.23 }
       }
     }
   ],
@@ -54,8 +54,8 @@
       "nombre": "Supervisor/a",
       "descripcion": "Coordinación y control de tareas",
       "modalidades": {
-        "con_retiro": { "valor_hora": 4645.32, "valor_mensual": 579493.14 },
-        "sin_retiro": { "valor_hora": 5049.58, "valor_mensual": 640641.55 }
+        "con_retiro": { "valor_hora": 4805.82, "valor_mensual": 599514.52 },
+        "sin_retiro": { "valor_hora": 5215.59, "valor_mensual": 661702.46 }
       }
     },
     {
@@ -63,8 +63,8 @@
       "nombre": "Tareas específicas",
       "descripcion": "Personal con tareas específicas",
       "modalidades": {
-        "con_retiro": { "valor_hora": 4422.53, "valor_mensual": 541402.48 },
-        "sin_retiro": { "valor_hora": 4809.80, "valor_mensual": 597854.37 }
+        "con_retiro": { "valor_hora": 4580.80, "valor_mensual": 560776.33 },
+        "sin_retiro": { "valor_hora": 4973.38, "valor_mensual": 618187.89 }
       }
     },
     {
@@ -72,7 +72,7 @@
       "nombre": "Caseros/as",
       "descripcion": "Personal para tareas de casería",
       "modalidades": {
-        "sin_retiro": { "valor_hora": 4185.94, "valor_mensual": 529261.78 }
+        "sin_retiro": { "valor_hora": 4337.53, "valor_mensual": 548429.23 }
       }
     },
     {
@@ -80,8 +80,8 @@
       "nombre": "Cuidado de personas",
       "descripcion": "Asistencia y cuidados de personas",
       "modalidades": {
-        "con_retiro": { "valor_hora": 4185.94, "valor_mensual": 529261.78 },
-        "sin_retiro": { "valor_hora": 4641.90, "valor_mensual": 584936.09 }
+        "con_retiro": { "valor_hora": 4337.53, "valor_mensual": 548429.23 },
+        "sin_retiro": { "valor_hora": 4801.52, "valor_mensual": 605050.00 }
       }
     },
     {
@@ -89,13 +89,13 @@
       "nombre": "Tareas generales",
       "descripcion": "Personal para tareas generales",
       "modalidades": {
-        "con_retiro": { "valor_hora": 3914.63, "valor_mensual": 480247.84 },
-        "sin_retiro": { "valor_hora": 4306.71, "valor_mensual": 544531.78 }
+        "con_retiro": { "valor_hora": 4064.08, "valor_mensual": 498582.06 },
+        "sin_retiro": { "valor_hora": 4337.53, "valor_mensual": 548429.23 }
       }
     }
   ],
   "sumaNoRemunerativa": {
-    "nota": "Suma POR ÚNICA VEZ — agosto 2026 (Res. 6/2026), pagada junto con los haberes de agosto. En septiembre NO corresponde suma aparte: el 25% ($2.000/$2.875/$5.000) ya está incorporado en los valores de la escala. Incorporación restante al básico: 50% en octubre, 25% en noviembre.",
+    "nota": "Suma POR ÚNICA VEZ — agosto 2026 (Res. 6/2026), pagada junto con los haberes de agosto. En octubre NO corresponde suma aparte: el tramo del 50% ($4.000/$5.750/$10.000) ya está incorporado en los valores de la escala (con el 25% de septiembre suma 75%). Resta incorporar el 25% final en noviembre.",
     "brackets": [
       { "maxHoras": 12, "etiqueta": "< 12h semanales", "monto": 8000 },
       { "minHoras": 12, "maxHoras": 16, "etiqueta": "12 a < 16h semanales", "monto": 11500 },
