@@ -24,9 +24,9 @@ LD.UI = (function () {
     return signo + '$' + partes.join('.') + ',' + String(dec).padStart(2, '0');
   }
 
-  /* Calcula antigüedad en años según regla AFIP:
-     - El cómputo empieza desde septiembre 2021 (no antes)
-     - 1% por cada año desde esa fecha de inicio */
+  /* Calcula antigüedad en años según regla ARCA:
+     - El servicio se computa desde septiembre 2020 (no antes)
+     - El primer 1% se cobra en septiembre 2021; +1% cada septiembre siguiente */
   function calcularAntiguedadDesdeFecha(fechaIngreso, mes, anio) {
     if (!fechaIngreso) return 0;
     var partes = fechaIngreso.split('-');
@@ -34,8 +34,8 @@ LD.UI = (function () {
     var ingreso = new Date(parseInt(partes[0], 10), parseInt(partes[1], 10) - 1, parseInt(partes[2], 10));
     if (isNaN(ingreso.getTime())) return 0;
 
-    // La antigüedad arranca desde septiembre 2021 (AFIP)
-    var inicio = new Date(2021, 8, 1); // Septiembre 2021
+    // El servicio se computa desde septiembre 2020 (ARCA); el 1% se cobra desde sep/2021
+    var inicio = new Date(2020, 8, 1); // Septiembre 2020
     if (ingreso > inicio) inicio = ingreso; // Si ingresó después, desde esa fecha
 
     var fin = new Date(anio, mes - 1, 1);
@@ -166,7 +166,7 @@ LD.UI = (function () {
           '<label class="Form-label" for="input-fecha-ingreso">Fecha de ingreso</label>' +
           '<input class="Form-input" type="date" id="input-fecha-ingreso" ' +
             'value="' + (s.fechaIngreso || '') + '">' +
-          '<small class="Form-helper">Antigüedad: 1% por año desde sep/2021 (AFIP)</small>' +
+          '<small class="Form-helper">Antigüedad: 1% por año desde sep/2020 (ARCA)</small>' +
           '<small class="Form-helper" id="antiguedad-calculada"></small>' +
         '</div>' +
       '</fieldset>' +
@@ -583,10 +583,10 @@ LD.UI = (function () {
     var años = calcularAntiguedadDesdeFecha(fechaInput.value, mes, anio);
     if (años > 0) {
       var pct = Math.min(años, 20);
-      helper.textContent = 'Antigüedad: ' + años + ' año' + (años !== 1 ? 's' : '') + ' → ' + pct + '% (desde sep/2021)';
+      helper.textContent = 'Antigüedad: ' + años + ' año' + (años !== 1 ? 's' : '') + ' → ' + pct + '% (desde sep/2020)';
       helper.className = 'Form-helper Form-helper--visible';
     } else if (fechaInput.value) {
-      helper.textContent = 'Antigüedad: 0 años — aún no cumple un año desde sep/2021';
+      helper.textContent = 'Antigüedad: 0 años — aún no cumple un año desde sep/2020';
       helper.className = 'Form-helper Form-helper--visible';
     } else {
       helper.textContent = '';
