@@ -176,8 +176,8 @@ LD.UI = (function () {
         '<legend class="Form-legend">Adicionales</legend>' +
         '<div class="Form-checkboxes">' +
           '<label class="Form-checkbox">' +
-            '<input type="checkbox" id="check-sumaNR" ' + (s.sumaNR ? 'checked' : '') + '> ' +
-            'Suma no remunerativa (automático según horas)' +
+            '<input type="checkbox" id="check-sumaNR" disabled> ' +
+            'Suma no remunerativa — no aplica en octubre 2026 (ya integrada a la escala)' +
           '</label>' +
           '<label class="Form-checkbox">' +
             '<input type="checkbox" id="check-zona" ' + (s.zonaDesfavorable ? 'checked' : '') + '> ' +
